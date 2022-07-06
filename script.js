@@ -1,23 +1,16 @@
 /*
-Rock Paper Scissors will be played completely from the console. 
-Playing against the computer, start with a function called
-computerPlay that will randomly return rock, paper, or scissors.
-
-Write a function that plays a single round, taking two parameters: 
-playerSelection and computerSelection returns a string that 
-declares the winner, eg: "You lose, paper beats rock."
-
-make playerSelection parameter case insensitive.
+TODO: RPS logic
 */
-
-// Test to verify we're good to go. 
 function helloUser() {
     let name = prompt("Enter your name."); 
     alert("Hello, " + name + "!"); 
+    console.log("We're going to play a game of Rock, Paper, Scissors against the computer."); 
 }
 
-// Generate array of RPS values
+// Initialize RPS Values, computer and player values.
 let objects = ['rock','paper','scissors']; 
+let computerSelection = 0; 
+let playerSelection = 0; 
 
 // Randomly generate number between 0-2 
 function randomNumber(min=0, max=3) {
@@ -26,17 +19,22 @@ function randomNumber(min=0, max=3) {
 }
 
 // Computer's round.
-function computerSelection() {
-    // Generate random number and return 
-    // object at index i
+function computerPlay(computerSelection) {
     let i = randomNumber(); 
-    return objects[i]; 
+    computerSelection = objects[i];
+    return computerSelection;
 }
 
-function playerSelection() {
+function userPlay(playerSelection) {
     // Make case insensitive
+    let choice = prompt("0: Rock\n1: Paper\n2: Scissors");
+    playerSelection = objects[+choice];
+    return playerSelection; 
 }
 
-function gameLoop() {
-
+function playRound(computerSelection, playerSelection) {
+    computerSelection = computerPlay(); 
+    playerSelection = userPlay(); 
+    console.log(`Computer played ${computerSelection}.`); 
+    console.log(`User played ${playerSelection}.`);
 }
