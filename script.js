@@ -5,6 +5,7 @@ function helloUser() {
     let name = prompt("Enter your name."); 
     alert("Hello, " + name + "!"); 
     console.log("We're going to play a game of Rock, Paper, Scissors against the computer."); 
+    console.log("\n\tNerd.")
 }
 
 // Initialize RPS Values, computer and player values.
@@ -32,9 +33,32 @@ function userPlay(playerSelection) {
     return playerSelection; 
 }
 
-function playRound(computerSelection, playerSelection) {
+function playRound(computerSelection, playerSelection='rock') {
     computerSelection = computerPlay(); 
     playerSelection = userPlay(); 
     console.log(`Computer played ${computerSelection}.`); 
     console.log(`User played ${playerSelection}.`);
+
+    if (computerSelection === playerSelection){
+        return `It's a draw! ${computerSelection} and ${playerSelection} are the same!`;
+    }
+    else if (computerSelection == 'rock' && playerSelection != 'paper') {
+        return `You lose! ${computerSelection} beats ${playerSelection}`;
+    }
+    else if (computerSelection == 'paper' && playerSelection != 'scissors') {
+        return `You lose! ${computerSelection} beats ${playerSelection}`;
+    }
+    else if (computerSelection == 'scissors' && playerSelection != 'rock') {
+        return `You lose! ${computerSelection} beats ${playerSelection}`;
+    }
+    else {
+        return `You win! ${playerSelection} beats ${computerSelection}`;
+    }
+}   
+
+function game() {
+    for (let i = 0; i < 5; i++) {
+        console.log(playRound()); 
+    }
 }
+
