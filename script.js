@@ -22,20 +22,20 @@ function playerPlay(playerSelection) {
 }
 
 // rock 
-const btn = document.querySelector('#rock'); 
-btn.addEventListener('click', function(e) {
+const btnA = document.querySelector('#rock'); 
+btnA.addEventListener('click', function(e) {
   playRound(computerSelection, playerSelection=0) //rock
 });
 
 // paper
-const btn = document.querySelector('#paper'); 
-btn.addEventListener('click', function(e) {
+const btnB = document.querySelector('#paper'); 
+btnB.addEventListener('click', function(e) {
   playRound(computerSelection, playerSelection=0) //rock
 });
 
 //scissors
-const btn = document.querySelector('#scissors'); 
-btn.addEventListener('click', function(e) {
+const btnC = document.querySelector('#scissors'); 
+btnC.addEventListener('click', function(e) {
   playRound(computerSelection, playerSelection=0) //rock
 });
 
