@@ -1,15 +1,5 @@
-/*
-TODO: RPS logic
-*/
-function helloUser() {
-  let name = prompt("Enter your name."); 
-  alert("Hello, " + name + "!"); 
-  console.log("We're going to play a game of Rock, Paper, Scissors against the computer."); 
-	 console.log("\n\tNerd.")
-}
-
 // Initialize RPS Values, computer and player values.
-let objects = ['rock','paper','scissors']; 
+let objects = ['Rock','Paper','Scissors']; 
 let computerSelection = 0; 
 let playerSelection = 0; 
 
@@ -26,40 +16,50 @@ function computerPlay(computerSelection) {
   return computerSelection;
 }
 
-function userPlay(playerSelection) {
-  // Make case insensitive
-  let choice = prompt("0: Rock\n1: Paper\n2: Scissors");
-  playerSelection = objects[+choice];
-  return playerSelection; 
+// Player round
+function playerPlay(playerSelection) {
+  return objects[playerSelection];
 }
 
-function playRound(computerSelection, playerSelection='rock') {
+// rock 
+const btn = document.querySelector('#rock'); 
+btn.addEventListener('click', function(e) {
+  playRound(computerSelection, playerSelection=0) //rock
+});
+
+// paper
+const btn = document.querySelector('#paper'); 
+btn.addEventListener('click', function(e) {
+  playRound(computerSelection, playerSelection=0) //rock
+});
+
+//scissors
+const btn = document.querySelector('#scissors'); 
+btn.addEventListener('click', function(e) {
+  playRound(computerSelection, playerSelection=0) //rock
+});
+
+function playRound(computerSelection, playerSelection) {
   computerSelection = computerPlay(); 
-  playerSelection = userPlay(); 
+  playerSelection = playerPlay(playerSelection);
+  //playerSelection = objects[playerSelection]; 
   console.log(`Computer played ${computerSelection}.`); 
   console.log(`User played ${playerSelection}.`);
 
   if (computerSelection === playerSelection){
-    return `It's a draw! ${computerSelection} and ${playerSelection} are the same!`;
+    console.log(`Draw: ${computerSelection} === ${playerSelection}.`);
   }
   else if (computerSelection == 'rock' && playerSelection != 'paper') {
-    return `You lose! ${computerSelection} beats ${playerSelection}`;
+    console.log(`You lose! ${computerSelection} beats ${playerSelection}.`);
   }
   else if (computerSelection == 'paper' && playerSelection != 'scissors') {
-    return `You lose! ${computerSelection} beats ${playerSelection}`;
+    console.log(`You lose! ${computerSelection} beats ${playerSelection}.`);
   }
   else if (computerSelection == 'scissors' && playerSelection != 'rock') {
-    return `You lose! ${computerSelection} beats ${playerSelection}`;
+    console.log(`You lose! ${computerSelection} beats ${playerSelection}.`);
   }
   else {
-    return `You win! ${playerSelection} beats ${computerSelection}`;
-  }
-}   
-
-function game() {
-  for (let i = 0; i < 5; i++) {
-    console.log(playRound()); 
+    console.log(`You win! ${playerSelection} beats ${computerSelection}.`);
   }
 }
 
-game(); 
