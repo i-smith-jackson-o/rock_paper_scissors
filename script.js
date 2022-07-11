@@ -49,7 +49,14 @@ function computerPlay() {
 }
 
 function declareWinner(){
-  console.log(objects);
+  if (uScore == 5) {
+    winner.innerHTML = round[0]
+  }
+  if (cScore == 5) {
+    winner.innerHTML = round[1]; 
+  }
+  uScore = 0; 
+  cScore = 0;  
 }
 
 function gameLoop() {
